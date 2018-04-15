@@ -1,0 +1,1320 @@
+test = {
+  'name': 'Question 0',
+  'points': 0,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> test_dice = make_test_dice(4, 1, 2)
+          >>> test_dice()
+          4
+          >>> test_dice() # Second call
+          1
+          >>> test_dice() # Third call
+          2
+          >>> test_dice() # Fourth call
+          4
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'answer': 'six_sided()',
+          'choices': [
+            'make_test_dice(6)',
+            'make_fair_dice(6)',
+            'six_sided',
+            'six_sided()'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': 'Which of the following is the correct way to "roll" a fair, six-sided die?'
+        }
+      ],
+      'scored': False,
+      'type': 'concept'
+    }
+  ]
+}
+test = {
+  'name': 'Question 1',
+  'points': 2,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> roll_dice(2, make_test_dice(4, 6, 1))
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> roll_dice(3, make_test_dice(4, 6, 1))
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> roll_dice(4, make_test_dice(2, 2, 3))
+          9
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> roll_dice(4, make_test_dice(1, 2, 3))
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> counted_dice = make_test_dice(4, 1, 2, 6)
+          >>> roll_dice(3, counted_dice)
+          1
+          >>> roll_dice(1, counted_dice)  # Make sure you call dice exactly num_rolls times!
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> roll_dice(9, make_test_dice(6))
+          54
+          >>> roll_dice(7, make_test_dice(2, 2, 2, 2, 2, 2, 1))
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> roll_dice(5, make_test_dice(4, 2, 3, 3, 4, 1))
+          16
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> roll_dice(2, make_test_dice(1))
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> dice = make_test_dice(5, 4, 3, 2, 1)
+          >>> roll_dice(1, dice)    # Roll 1 (5)
+          5
+          >>> roll_dice(4, dice)    # Reset (4, 3, 2, 1)
+          1
+          >>> roll_dice(2, dice)    # Roll 2 (5, 4)
+          9
+          >>> roll_dice(3, dice)    # Reset (3, 2, 1)
+          1
+          >>> roll_dice(3, dice)    # Roll 3 (5, 4, 3)
+          12
+          >>> roll_dice(2, dice)    # Reset (2, 1)
+          1
+          >>> roll_dice(4, dice)    # Roll 4 (5, 4, 3, 2)
+          14
+          >>> roll_dice(1, dice)    # Reset (1)
+          1
+          >>> roll_dice(5, dice)    # Roll 5 (5, 4, 3, 2, 1)
+          1
+          >>> roll_dice(10, dice)    # Roll 10 (5, 4, 3, 2, 1, 5, 4, 3, 2, 1)
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 2',
+  'points': 1,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> free_bacon(35)
+          4
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> free_bacon(71)
+          8
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> free_bacon(7)
+          9
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> free_bacon(0)
+          2
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 3',
+  'points': 1,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> take_turn(2, 0, make_test_dice(4, 6, 1))
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(3, 0, make_test_dice(4, 6, 1))
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(0, 35)
+          4
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(0, 71)
+          8
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(0, 7)
+          9
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(0, 0)
+          2
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(2, 0, make_test_dice(6))
+          12
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(9, 0, make_test_dice(4))
+          36
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(8, 0, make_test_dice(4))
+          32
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(7, 0, make_test_dice(4))
+          28
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> take_turn(6, 0, make_test_dice(4))
+          24
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> hog.take_turn(5, 0) # Make sure you call roll_dice!
+          Called roll dice!
+          9002
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> import hog
+      >>> def roll_dice(num_rolls, dice):
+      ...     print("Called roll dice!")
+      ...     return 9002
+      ...
+      >>> hog.roll_dice, old_roll_dice = roll_dice, hog.roll_dice
+      """,
+      'teardown': r"""
+      >>> hog.roll_dice = old_roll_dice
+      """,
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 4',
+  'points': 1,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> is_swap(19, 91)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(20, 40)
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(40, 20)
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(41, 14)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(13, 32)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(1, 0)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(0, 1)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(3, 0)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(0, 3)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(10, 1)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(1, 10)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(34, 17)
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(15, 30)
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> is_swap(1, 30)
+          False
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 5',
+  'points': 3,
+  'suites': [
+    {
+      'cases': [
+        {
+          'answer': 'While score0 and score1 are both less than goal',
+          'choices': [
+            'While score0 and score1 are both less than goal',
+            'While at least one of score0 or score1 is less than goal',
+            'While score0 is less than goal',
+            'While score1 is less than goal'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': r"""
+          The variables score0 and score1 are the scores for Player 0
+          and Player 1, respectively. Under what conditions should the
+          game continue?
+          """
+        },
+        {
+          'answer': 'A function that returns the number of dice a player will roll',
+          'choices': [
+            'The number of dice a player will roll',
+            'A function that returns the number of dice a player will roll',
+            "A player's desired turn outcome"
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': 'What is a strategy in the context of this game?'
+        },
+        {
+          'answer': 'strategy1(score1, score0)',
+          'choices': [
+            'strategy1(score1, score0)',
+            'strategy1(score0, score1)',
+            'strategy1(score1)',
+            'strategy1(score0)'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': r"""
+          If strategy1 is Player 1's strategy function, score0 is
+          Player 0's current score, and score1 is Player 1's current
+          score, then which of the following demonstrates correct
+          usage of strategy1?
+          """
+        }
+      ],
+      'scored': False,
+      'type': 'concept'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> #
+          >>> # Play function stops at goal
+          >>> s0, s1 = hog.play(always(5), always(3), score0=91, score1=10, dice=always_three)
+          >>> s0
+          106
+          >>> s1
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Goal score is not hardwired
+          >>> s0, s1 = hog.play(always(5), always(5), goal=10, dice=always_three)
+          >>> s0
+          15
+          >>> s1
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> import hog
+      >>> always_three = hog.make_test_dice(3)
+      >>> always = hog.always_roll
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> #
+          >>> # Use strategies
+          >>> # We recommend working this out turn-by-turn on a piece of paper.
+          >>> strat0 = lambda score, opponent: opponent % 10
+          >>> strat1 = lambda score, opponent: score // 10
+          >>> s0, s1 = hog.play(strat0, strat1, score0=41, score1=80, dice=always_three)
+          >>> s0
+          51
+          >>> s1
+          104
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> import hog
+      >>> always_three = hog.make_test_dice(3)
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> #
+          >>> # Goal edge case
+          >>> s0, s1 = hog.play(always(4), always(3), score0=88, score1=20, dice=always_three)
+          >>> s0
+          20
+          >>> s1
+          100
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Player 1 win
+          >>> s0, s1 = hog.play(always(4), always(4), score0=87, score1=88, dice=always_three)
+          >>> s0
+          99
+          >>> s1
+          100
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> # Check strategies are actually used correctly
+          >>> strat0 = lambda score, opponent: opponent % 10
+          >>> strat1 = lambda score, opponent: opponent // 10
+          >>> s0, s1 = hog.play(strat0, strat1, score0=40, score1=92, dice=always_three)
+          >>> s0
+          101
+          >>> s1
+          73
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Swine swap applies during Player 1 turn
+          >>> s0, s1 = hog.play(always(4), always(4), score0=42, score1=96, dice=always_three)
+          >>> s0
+          108
+          >>> s1
+          54
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Free bacon refers to correct opponent score
+          >>> s0, s1 = hog.play(always(0), always(0), score0=11, score1=99, dice=always_three)
+          >>> s0
+          13
+          >>> s1
+          103
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Handle multiple turns with many swaps
+          >>> s0, s1 = hog.play(always(0), always(2), goal=15, dice=always_three)
+          >>> s0
+          16
+          >>> s1
+          2
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> import hog
+      >>> always_three = hog.make_test_dice(3)
+      >>> always = hog.always_roll
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> tests.play_utils.check_play_function(hog)
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> # Fuzz Testing
+      >>> # Plays a lot of random games, and calculates a secret value.
+      >>> # Failing this test means something is wrong, but you should
+      >>> # look at other tests to see where the problem might be.
+      >>> # Hint: make sure you're only calling take_turn once per turn!
+      >>> #
+      >>> import hog, importlib
+      >>> importlib.reload(hog)
+      >>> import tests.play_utils
+      """,
+      'teardown': r"""
+      
+      """,
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 6',
+  'points': 2,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> #
+          >>> def echo(s0, s1):
+          ...     print(s0, s1)
+          ...     return echo
+          >>> s0, s1 = play(always_roll(1), always_roll(1), dice=make_test_dice(3), goal=4, say=echo)
+          3 0
+          3 3
+          3 6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> def echo(s0, s1):
+          ...     print(s0, s1)
+          ...     return echo
+          >>> s0, s1 = play(always_roll(0), always_roll(0), goal=4, say=echo)
+          2 0
+          4 2
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> # Ensure that say is properly updated within the body of play.
+          >>> def total(s0, s1):
+          ...     print(s0 + s1)
+          ...     return echo
+          >>> def echo(s0, s1):
+          ...     print(s0, s1)
+          ...     return total
+          >>> s0, s1 = play(always_roll(1), always_roll(1), dice=make_test_dice(2, 3), goal=5, say=echo)
+          2 0
+          5
+          4 3
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import play, always_roll
+      >>> from dice import make_test_dice
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> #
+          >>> def echo_0(s0, s1):
+          ...     print('*', s0)
+          ...     return echo_0
+          >>> def echo_1(s0, s1):
+          ...     print('**', s1)
+          ...     return echo_1
+          >>> s0, s1 = play(always_roll(0), always_roll(0), goal=1, say=both(echo_0, echo_1))
+          * 2
+          ** 0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> s0, s1 = play(always_roll(3), always_roll(3), dice=make_test_dice(1, 2, 3, 3), goal=8, say=both(say_scores, announce_lead_changes()))
+          Player 0 now has 1 and Player 1 now has 0
+          Player 0 takes the lead by 1
+          Player 0 now has 1 and Player 1 now has 1
+          Player 0 now has 2 and Player 1 now has 1
+          Player 0 takes the lead by 1
+          Player 0 now has 2 and Player 1 now has 9
+          Player 1 takes the lead by 7
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> s0, s1 = play(always_roll(0), always_roll(0), goal=8, say=both(say_scores, announce_lead_changes()))
+          Player 0 now has 2 and Player 1 now has 0
+          Player 0 takes the lead by 2
+          Player 0 now has 4 and Player 1 now has 2
+          Player 0 now has 2 and Player 1 now has 8
+          Player 1 takes the lead by 6
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import play, always_roll, both, announce_lead_changes, say_scores
+      >>> from dice import make_test_dice
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 7',
+  'points': 2,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> f0 = announce_highest(1) # Only announce Player 1 score gains
+          >>> f1 = f0(11, 0)
+          >>> f2 = f1(11, 1)
+          1 point! That's the biggest gain yet for Player 1
+          >>> f3 = f2(20, 1)
+          >>> f4 = f3(5, 20) # Player 1 gets 4 points, then Swine Swap applies
+          19 points! That's the biggest gain yet for Player 1
+          >>> f5 = f4(20, 40) # Player 0 gets 35 points, then Swine Swap applies
+          20 points! That's the biggest gain yet for Player 1
+          >>> f6 = f5(20, 55) # Player 1 gets 15 points; not enough for a new high
+          >>> f7 = f6(21, 55)
+          >>> f8 = f7(21, 75)
+          >>> f9 = f8(75, 25) # Swap!
+          >>> f10 = f9(50, 75) # Swap!
+          50 points! That's the biggest gain yet for Player 1
+          >>> # The following function call checks if the behavior of f1 changes,
+          >>> # perhaps due to a side effect other than printing. The only side
+          >>> # effect of a commentary function should be to print.
+          >>> f2_again = f1(11, 1)
+          1 point! That's the biggest gain yet for Player 1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> #
+          >>> announce_both = both(announce_highest(0), announce_highest(1))
+          >>> s0, s1 = play(always_roll(0), always_roll(0), goal=10, say=announce_both)
+          2 points! That's the biggest gain yet for Player 0
+          2 points! That's the biggest gain yet for Player 1
+          6 points! That's the biggest gain yet for Player 1
+          10 points! That's the biggest gain yet for Player 0
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import play, always_roll, announce_highest, both
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 8',
+  'points': 2,
+  'suites': [
+    {
+      'cases': [
+        {
+          'answer': 'It both takes in a function as an argument and returns a function',
+          'choices': [
+            'It takes in a function as an argument',
+            'It returns a function',
+            'It both takes in a function as an argument and returns a function',
+            'It uses the *args keyword'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': 'What makes make_averaged a higher order function?'
+        },
+        {
+          'answer': 'An arbitrary amount, which is why we need to use *args to call it',
+          'choices': [
+            'None',
+            'Two',
+            'An arbitrary amount, which is why we need to use *args to call it'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': 'How many arguments does the function passed into make_averaged take?'
+        }
+      ],
+      'scored': False,
+      'type': 'concept'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> dice = make_test_dice(3, 1, 5, 6)
+          >>> averaged_dice = make_averaged(dice, 1000)
+          >>> # Average of calling dice 1000 times
+          >>> averaged_dice()
+          3.75
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> dice = make_test_dice(3, 1, 5, 6)
+          >>> averaged_roll_dice = make_averaged(roll_dice, 1000)
+          >>> # Average of calling roll_dice 1000 times
+          >>> # Enter a float (e.g. 1.0) instead of an integer
+          >>> averaged_roll_dice(2, dice)
+          6.0
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> hundred_range = range(1, 100)
+          >>> hundred_dice = make_test_dice(*hundred_range)
+          >>> averaged_hundred_dice = make_averaged(hundred_dice, 5*len(hundred_range))
+          >>> correct_average = sum(range(1, 100)) / len(hundred_range)
+          >>> averaged_hundred_dice()
+          50.0
+          >>> averaged_hundred_dice()
+          50.0
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 9',
+  'points': 1,
+  'suites': [
+    {
+      'cases': [
+        {
+          'answer': 'The lowest num_rolls',
+          'choices': [
+            'The lowest num_rolls',
+            'The highest num_rolls',
+            'A random num_rolls'
+          ],
+          'hidden': False,
+          'locked': False,
+          'question': r"""
+          If multiple num_rolls are tied for the highest scoring
+          average, which should you return?
+          """
+        }
+      ],
+      'scored': False,
+      'type': 'concept'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> dice = make_test_dice(3)   # dice always returns 3
+          >>> max_scoring_num_rolls(dice, num_samples=1000)
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> dice = make_test_dice(1, 2, 2, 2, 2, 2, 2, 2)
+          >>> max_scoring_num_rolls(dice, num_samples=1000)
+          4
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> dice = make_test_dice(2)     # dice always rolls 2
+          >>> max_scoring_num_rolls(dice, num_samples=1000)
+          10
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> dice = make_test_dice(1, 2)  # dice alternates 1 and 2
+          >>> max_scoring_num_rolls(dice, num_samples=1000)
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> dice = make_test_dice(1, 2, 3, 4, 5)  # dice sweeps from 1 through 5
+          >>> max_scoring_num_rolls(dice, num_samples=1000)
+          3
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 10',
+  'points': 1,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> bacon_strategy(0, 0, margin=8, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(70, 50, margin=8, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(50, 70, margin=8, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(32, 4, margin=5, num_rolls=4)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 18, margin=9, num_rolls=4)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> from tests.check_strategy import check_strategy
+          >>> check_strategy(bacon_strategy)
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 4, margin=3, num_rolls=4)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 23, margin=5, num_rolls=0)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 24, margin=7, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 25, margin=7, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> bacon_strategy(20, 26, margin=11, num_rolls=6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}test = {
+  'name': 'Question 11',
+  'points': 2,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> swap_strategy(12, 60, 8, 6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(30, 54, 8, 6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(7, 24, 8, 6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(7, 28, 8, 6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> from tests.check_strategy import check_strategy
+          >>> check_strategy(swap_strategy)
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> swap_strategy(10, 28, 8, 6) # beneficial
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(9, 1, 8, 6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(44, 24, 8, 6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> swap_strategy(37, 24, 8, 6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': True,
+      'setup': r"""
+      >>> from hog import *
+      """,
+      'teardown': '',
+      'type': 'doctest'
+    }
+  ]
+}
+test = {
+  'name': 'Question 12',
+  'points': 0,
+  'suites': [
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> check_strategy(hog.final_strategy)
+          """,
+          'hidden': False,
+          'locked': False
+        }
+      ],
+      'scored': False,
+      'setup': r"""
+      >>> import hog
+      >>> def check_strategy(strat):
+      ...     for score in range(100):
+      ...         for opp in range(100):
+      ...             num_rolls = strat(score, opp)
+      ...             if not isinstance(num_rolls, int):
+      ...                 raise ValueError("final_strategy({0}, {1}) returned {2}, not an int.".format(score, opp, num_rolls))
+      >>> def max_scoring_num_rolls(dice=lambda: 1):
+      ...     raise RuntimeError("Your final strategy should not call max_scoring_num_rolls.")
+      >>> old_max_scoring_num_rolls = hog.max_scoring_num_rolls
+      >>> hog.max_scoring_num_rolls = max_scoring_num_rolls
+      """,
+      'teardown': r"""
+      >>> hog.max_scoring_num_rolls = old_max_scoring_num_rolls
+      """,
+      'type': 'doctest'
+    }
+  ]
+}
+
+
